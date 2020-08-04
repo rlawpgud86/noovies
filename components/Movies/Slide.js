@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components/native";
 import PropTypes from "prop-types";
 import { apiImage } from "../../api";
+import Poster from "../Poster";
 
 const Container = styled.View`
   height: 100%;
@@ -17,6 +18,7 @@ const BG = styled.Image`
 
 const Content = styled.View`
   flex-direction: row;
+  justify-content: space-around;
 `;
 
 const Data = styled.View`
@@ -39,10 +41,11 @@ const Overview = styled.Text`
   opacity: 0.7;
 `;
 
-const Slide = ({ id, title, backgroundImage, votes, overview }) => (
+const Slide = ({ id, title, backgroundImage, votes, overview, poster }) => (
   <Container>
     <BG source={{ uri: apiImage(backgroundImage) }} />
     <Content>
+      <Poster url={apiImage(backgroundImage)} />
       <Data>
         <Title>{title}</Title>
         <Votes>{votes} / 10</Votes>
